@@ -29,7 +29,6 @@ export class HTTPServiceService {
     this.isAuthenticated$.next(value);
   }
 
-
   checkCredentials(credentials: any): void {
     this.http
       .post(`${this.baseUrl}auth/login`, credentials)

@@ -16,15 +16,15 @@ export class LoginComponent {
     password: new FormControl('password123', [Validators.required]),
   });
 
-  credentialsOK: boolean = false;
+  credentialsError: boolean = false;
 
   submitCredentials() {
     if (
       this.formGroup.value.email === 'demo@dryad.net' &&
       this.formGroup.value.password === 'password123'
     ) {
-      this.credentialsOK = true;
       this.httpService.checkCredentials(this.formGroup.value);
     }
+    else this.credentialsError = true;
   }
 }

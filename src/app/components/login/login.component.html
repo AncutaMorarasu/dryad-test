@@ -10,4 +10,8 @@
 
     <button (click)="submitCredentials()" class="submit-button">Submit</button>
   </form>
+
+  <div *ngIf="credentialsError">
+    <h4>Please check your credentials and try again.</h4>
+  </div>
 </div>
