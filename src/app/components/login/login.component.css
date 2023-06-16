@@ -5,3 +5,41 @@
   align-items: center;
   justify-content: center;
 }
+
+.login__container {
+  background-color: #ff9671;
+  margin: 50px auto;
+  width: 400px;
+  height: 500px;
+  border: 5px solid #fff;
+  border-radius: 5px;
+}
+
+.submit-button {
+  margin: 20px 0;
+  background-color: #00c9b7;
+  border-radius: 28px;
+  border: 1px solid #fff;
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  font-size: 17px;
+  padding: 15px 30px;
+}
+.submit-button:hover {
+  background-color: #1e887d;
+}
+
+.submit-button:active {
+  position: relative;
+  top: 1px;
+}
+
+label {
+  margin: 10px 0;
+}
+
+input {
+  width: 250px;
+}

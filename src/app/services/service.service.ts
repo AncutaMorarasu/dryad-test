@@ -1,22 +1,53 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HTTPServiceService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  postUri = 'https://db.staging.dryad.app/auth/login';
-  getUri = 'https://db.staging.dryad.app/items/sensor_node';
+  baseUrl = 'https://db.staging.dryad.app/';
 
-  token = new BehaviorSubject('');
+  private token$ = new BehaviorSubject<string>('');
+  private isAuthenticated$ = new BehaviorSubject<boolean>(false);
 
-  checkCredentials(credentials: any) {
-    this.http.post(this.postUri, credentials).subscribe((response: any) => {
-      console.log(response);
-      this.token = response.data.access_token;
-    });
+  get token(): Observable<string> {
+    return this.token$.asObservable();
+  }
+  setToken(value: string): void {
+    this.token$.next(value);
+  }
+
+  get isAuthenticated(): Observable<boolean> {
+    return this.isAuthenticated$.asObservable();
+  }
+
+  setAuthenticated(value: boolean): void {
+    this.isAuthenticated$.next(value);
+  }
+
+
+  checkCredentials(credentials: any): void {
+    this.http
+      .post(`${this.baseUrl}auth/login`, credentials)
+      .pipe(
+        catchError(() => {
+          return throwError(() => new Error('bad credentials'));
+        })
+      )
+      .subscribe((response: any) => {
+        if (response) {
+          this.setToken(response.data.access_token);          
+          this.setAuthenticated(true);
+          this.router.navigate(['/dashboard']);
+        }
+      });
+  }
+
+  getSensorItems(): Observable<any> {
+    return this.http.get(`${this.baseUrl}items/sensor_node`);
   }
 }

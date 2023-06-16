@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HTTPServiceService } from 'src/app/services/service.service';
 
 @Component({
@@ -11,15 +12,13 @@ export class LoginComponent {
   constructor(private httpService: HTTPServiceService) {}
 
   formGroup = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('demo@dryad.net', [Validators.required]),
+    password: new FormControl('password123', [Validators.required]),
   });
 
   credentialsOK: boolean = false;
 
   submitCredentials() {
-    console.log(this.formGroup.value);
-
     if (
       this.formGroup.value.email === 'demo@dryad.net' &&
       this.formGroup.value.password === 'password123'

@@ -1,1 +1,38 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <h1>Sensors Dashboard</h1>
+  <div *ngIf="!areSensorsLoading; else loading" class="dashboard-list">
+    <div *ngFor="let sensor of sensors" class="item-card">
+      <h3>{{ sensor.name }}</h3>
+      <span
+        >Sensor status: <span appMakeBold> {{ sensor.status }}</span></span
+      >
+      <span
+        >Sensor active: <span appMakeBold> {{ sensor.active }}</span></span
+      >
+      <span
+        >Sensor creation date:
+        <span appMakeBold> {{ sensor.date_created | date }}</span></span
+      >
+      <span
+        >Sensor serial id:
+        <span appMakeBold> {{ sensor.serial_id }}</span></span
+      >
+      <span
+        >Sensor latitude:
+        <span appMakeBold>
+          {{ sensor.latitude ? sensor.latitude : "-" }}</span
+        ></span
+      >
+      <span
+        >Sensor longitude:
+        <span appMakeBold>
+          {{ sensor.longitude ? sensor.longitude : "-" }}</span
+        ></span
+      >
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <h2>Sensors loading...</h2>
+  </ng-template>
+</div>
