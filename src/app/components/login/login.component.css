@@ -1,45 +1,136 @@
-.login__container,
-.form {
+.login__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 101%;
+  height: 101vh;
 }
 
-.login__container {
-  background-color: #ff9671;
-  margin: 50px auto;
-  width: 400px;
-  height: 500px;
-  border: 5px solid #fff;
-  border-radius: 5px;
-}
-
-.submit-button {
-  margin: 20px 0;
-  background-color: #00c9b7;
-  border-radius: 28px;
-  border: 1px solid #fff;
-  font-family: "Montserrat", sans-serif;
-  display: inline-block;
-  cursor: pointer;
+.title__container {
+  padding: 120px 32px 0 16px;
+  height: 50%;
+  background: url("../../../assets/forest.jpg");
   color: #fff;
-  font-size: 17px;
-  padding: 15px 30px;
-}
-.submit-button:hover {
-  background-color: #1e887d;
 }
 
-.submit-button:active {
-  position: relative;
-  top: 1px;
+.title {
+  font-size: 32px;
 }
 
-label {
-  margin: 10px 0;
+.description {
+  font-size: 16px;
+  font-family: "Nunito";
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 380px;
+  padding: 0 16px;
+  background-color: #fff;
+}
+
+.silvanet {
+  padding-top: 20px;
+  margin-bottom: 9px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.silvanet span {
+  padding-left: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 input {
-  width: 250px;
+  margin: 16px 0 10px 0;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons a {
+  margin-left: 32px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 19px;
+  color: #888888;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #30ae7d;
+  border: none;
+  border-radius: 10px;
+  width: 119px;
+  height: 53px;
+  padding: 12px 24px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+}
+
+@media screen and (min-width: 850px) {
+  .login__container {
+  flex-direction: row-reverse;
+  }
+
+  .title__container {
+    height: 100%;
+    width: 65%;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 0 0 60px;
+  }
+
+  .title, .description {
+    width: 65%;
+  }
+
+  .title {
+    font-size: 56px;
+  }
+  
+  .description {
+    font-size: 24px;
+  }
+
+  .form__container {
+    width: 35%;
+    padding: 0 60px;
+  }
+
+  input {
+    margin: 30px 0 10px 0;
+  }
+
+  .buttons {
+    margin-top: 30px;
+  }
+
+  .buttons a {
+    margin-left: 0px;
+  }
 }

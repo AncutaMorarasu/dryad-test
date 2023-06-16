@@ -11,6 +11,7 @@ import { HTTPServiceService } from 'src/app/services/service.service';
 export class LoginComponent {
   constructor(private httpService: HTTPServiceService) {}
 
+  title: string = 'Connecting the natural world';
   formGroup = new FormGroup({
     email: new FormControl('demo@dryad.net', [Validators.required]),
     password: new FormControl('password123', [Validators.required]),

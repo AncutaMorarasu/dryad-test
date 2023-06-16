@@ -1,17 +1,51 @@
 <div class="login__container">
-  <h1>Welcome to Dryad</h1>
-  <h3>Fill in your credentials below:</h3>
+  <div class="title__container">
+    <h1 class="title">{{ title | uppercase }}</h1>
+    <h3 class="description">
+      Dryad provides ultra-early fire detection as well as health & growth
+      monitoring solutions for public and private forests.
+    </h3>
+  </div>
+  <div class="form__container">
+    <div class="silvanet">
+      <svg
+        width="23"
+        height="24"
+        viewBox="0 0 23 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M22.0803 8.6149C22.0789 7.87713 21.9277 7.15665 21.6483 6.49089C21.6454 6.48369 21.6421 6.47613 21.6389 6.46893C21.6234 6.43256 21.6079 6.39655 21.5917 6.36055C21.115 5.28648 20.3092 4.37121 19.2647 3.77423L14.0747 0.757626C13.5163 0.396124 12.8628 0.162084 12.0796 0.0447039C11.2155 -0.0550332 10.4752 0.0432645 10.4752 0.0432645C9.81699 0.146962 9.1462 0.386402 8.48224 0.755105L3.29015 3.77278C1.55501 4.76547 0.47699 6.63564 0.47699 8.6527V8.68259V14.7194V14.7493H0.47735C0.47879 15.487 0.630016 16.2075 0.909424 16.8733C0.912305 16.8805 0.915546 16.888 0.918786 16.8952C0.934269 16.9316 0.949751 16.9676 0.965954 17.0036C1.44268 18.0777 2.24849 18.993 3.29303 19.5899L8.48296 22.6065C9.04142 22.968 9.69493 23.2021 10.4781 23.3195C10.4989 23.322 10.5198 23.3241 10.5407 23.3263V23.1376L10.5371 22.8471V17.2542L5.03069 12.6357C4.71276 12.3689 4.67099 11.8929 4.9378 11.575C5.0811 11.4039 5.29173 11.306 5.51497 11.306C5.6914 11.306 5.86315 11.3686 5.99854 11.4821L10.5371 15.2904V7.77415L10.5407 7.74643L10.5414 7.74283C10.5591 7.341 10.8867 7.02666 11.29 7.02666C11.7034 7.02666 12.0393 7.36296 12.0393 7.77595V13.4433L14.4211 11.4446C14.5565 11.3312 14.7282 11.2686 14.9047 11.2686C15.1279 11.2686 15.3385 11.3665 15.4818 11.5375C15.7486 11.8555 15.7069 12.3315 15.3889 12.5983L12.0393 15.4089V19.2897L16.5811 15.4784C16.7165 15.365 16.8882 15.3023 17.0647 15.3023C17.2879 15.3023 17.4982 15.4003 17.6419 15.5713C17.7711 15.7254 17.8327 15.9206 17.815 16.1208C17.7974 16.3209 17.7031 16.5024 17.549 16.632L12.0389 21.2552V23.3259C12.0667 23.3227 12.0821 23.3209 12.0821 23.3209C12.7403 23.2172 13.4111 22.9778 14.0751 22.6091L19.2672 19.5914C21.0019 18.5987 22.0803 16.7285 22.0803 14.7115V14.6816V8.64478V8.6149Z"
+          fill="#30AE7D"
+        />
+      </svg>
+      <span>Silvanet</span>
+    </div>
+    <form [formGroup]="formGroup" class="form">
+      <input
+        type="text"
+        pInputText
+        formControlName="email"
+        placeholder="Email"
+      />
 
-  <form [formGroup]="formGroup" class="form">
-    <label>Email address</label>
-    <input type="text" pInputText formControlName="email" />
-    <label>Password</label>
-    <input type="password" pInputText formControlName="password" />
+      <input
+        type="password"
+        pInputText
+        formControlName="password"
+        placeholder="Password"
+      />
 
-    <button (click)="submitCredentials()" class="submit-button">Submit</button>
-  </form>
-
-  <div *ngIf="credentialsError">
-    <h4>Please check your credentials and try again.</h4>
+    <div class="buttons">
+      <a>Forgot password?</a>
+      <button (click)="submitCredentials()" class="submit-button">
+        Login
+      </button>
+    </div>
+    </form>
+    <div *ngIf="credentialsError">
+      <h4>Please check your credentials and try again.</h4>
+    </div>
   </div>
 </div>

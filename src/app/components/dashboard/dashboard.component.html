@@ -2,7 +2,129 @@
   <h1>Sensors Dashboard</h1>
   <div *ngIf="!areSensorsLoading; else loading" class="dashboard-list">
     <div *ngFor="let sensor of sensors" class="item-card">
-      <h3>{{ sensor.name }}</h3>
+      <div class="item-name">
+        <div class="item-name-pulse">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_416_170)">
+              <path
+                d="M1.24994 12.4363H3.42302L6.13936 6.41254L10.4855 17.9125L13.2019 12.4363H15.3749"
+                stroke="#30AE7D"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18.7499 9.875C19.3116 10.4979 19.6249 11.3261 19.6249 12.1875C19.6249 13.0489 19.3116 13.8771 18.7499 14.5"
+                stroke="#30AE7D"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M21.1249 7.625C22.327 8.86142 22.9999 10.5214 22.9999 12.25C22.9999 13.9786 22.327 15.6386 21.1249 16.875"
+                stroke="#30AE7D"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16.5625 13.1875C16.0447 13.1875 15.625 12.7678 15.625 12.25C15.625 11.7322 16.0447 11.3125 16.5625 11.3125C17.0803 11.3125 17.5 11.7322 17.5 12.25C17.5 12.7678 17.0803 13.1875 16.5625 13.1875Z"
+                stroke="#30AE7D"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_416_170">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <h3>{{ sensor.name }}</h3>
+        </div>
+        <div class="item-actions">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_416_186)">
+              <path
+                d="M9 20.25H4.5C4.30109 20.25 4.11032 20.171 3.96967 20.0303C3.82902 19.8897 3.75 19.6989 3.75 19.5V15.3107C3.75 15.2122 3.7694 15.1147 3.80709 15.0237C3.84478 14.9327 3.90003 14.85 3.96967 14.7803L15.2197 3.53034C15.3603 3.38969 15.5511 3.31067 15.75 3.31067C15.9489 3.31067 16.1397 3.38969 16.2803 3.53034L20.4697 7.71968C20.6103 7.86033 20.6893 8.0511 20.6893 8.25001C20.6893 8.44892 20.6103 8.63969 20.4697 8.78034L9 20.25Z"
+                stroke="#4D73BD"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12.75 6L18 11.25"
+                stroke="#4D73BD"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_416_186">
+                <rect width="20" height="20" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_416_190)">
+              <path
+                d="M20.2498 5.25L3.74979 5.25004"
+                stroke="#DC5854"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M9.75 9.75V15.75"
+                stroke="#DC5854"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M14.25 9.75V15.75"
+                stroke="#DC5854"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18.75 5.25V19.5C18.75 19.6989 18.671 19.8897 18.5303 20.0303C18.3897 20.171 18.1989 20.25 18 20.25H6C5.80109 20.25 5.61032 20.171 5.46967 20.0303C5.32902 19.8897 5.25 19.6989 5.25 19.5V5.25"
+                stroke="#DC5854"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M15.75 5.25V3.75C15.75 3.35218 15.592 2.97064 15.3107 2.68934C15.0294 2.40804 14.6478 2.25 14.25 2.25H9.75C9.35218 2.25 8.97064 2.40804 8.68934 2.68934C8.40804 2.97064 8.25 3.35218 8.25 3.75V5.25"
+                stroke="#DC5854"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_416_190">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+      </div>
       <span
         >Sensor status: <span appMakeBold> {{ sensor.status }}</span></span
       >
